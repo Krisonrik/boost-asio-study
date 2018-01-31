@@ -16,15 +16,13 @@ ${PROJECT_SOURCE_DIR}/src/Daytime1-Source_Listing.cpp
 
 
 source_group("src" FILES ${PROJECT_SRCS})
-find_package( Boost COMPONENTS filesystem system asio REQUIRED )
+find_package( Boost COMPONENTS filesystem system REQUIRED )
 
 
 add_executable(${PROJECT_NAME} ${PROJECT_SRCS})
 
-target_link_libraries(${PROJECT_NAME} hvr_sample
-                                      Boost::filesystem
-                                      Boost::system
-                                      Boost::asio)
+target_link_libraries(${PROJECT_NAME} Boost::filesystem
+                                      Boost::system)
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER ${CMAKE_PROJECT_NAME}/apps)
 
